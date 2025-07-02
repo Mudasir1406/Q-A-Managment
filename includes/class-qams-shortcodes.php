@@ -8,6 +8,8 @@ class QAMS_Shortcodes {
         add_shortcode('qa_questions_list', array($this, 'questions_list'));
         add_shortcode('qa_single_question', array($this, 'single_question'));
         add_shortcode('qa_categories', array($this, 'categories'));
+        add_shortcode('qa_landing_page', [$this, 'landing_page']);
+
     }
 
     public function search_form($atts) {
@@ -53,4 +55,15 @@ class QAMS_Shortcodes {
         }
         return ob_get_clean();
     }
+    public function landing_page($atts) {
+    ob_start();
+    $file = QAMS_PATH . 'views/landing-page.php';
+    if (file_exists($file)) {
+        include $file;
+    } else {
+        echo '<p>Landing page template is missing.</p>';
+    }
+    return ob_get_clean();
+    }
+
 }

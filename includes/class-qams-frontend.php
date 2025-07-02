@@ -10,6 +10,7 @@ class QAMS_Frontend {
 
     public function frontend_assets() {
         wp_enqueue_style('qams-frontend', QAMS_URL . 'assets/frontend.css', array(), QAMS_VER);
+        wp_enqueue_style('qams-landing', QAMS_URL . 'assets/landing-page.css', [], QAMS_VER);
         wp_enqueue_script('qams-frontend', QAMS_URL . 'assets/frontend.js', array('jquery'), QAMS_VER, true);
         wp_localize_script('qams-frontend', 'qams_ajax', array(
             'ajax_url' => admin_url('admin-ajax.php'),
